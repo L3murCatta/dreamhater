@@ -10,6 +10,7 @@ currentdate = date.today()
 modes = {}
 sorts = {}
 counts = {}
+dreamhater = 0
 helptext = """========== MODES ==========
 
 "/good" changes the current mode to good. In this mode, the rolls are slightly higher on average.
@@ -681,6 +682,7 @@ def dice(bot, update):
                 counts[update.message.chat.id] = 0
                 count = 0
             finally:
+		update.message.reply_text("Hello ".format(update.message.from_user.username))
                 update.message.reply_text(("" if mode == 0 else "{} mode:\n".format("Bad" if mode == -1 else "Good")) + parseandroll(update.message.text[update.message.text.find(' ')+1:], mode, sort, count), parse_mode = "HTML")
 
 def d(bot, update):
@@ -797,20 +799,20 @@ def helpf(bot, update):
 
 updater = Updater('379931845:AAE063r0aMOGrHgyHP_F9-9Sll4ckeNTD1U')
 
-updater.dispatcher.add_handler(CommandHandler('dice', dice))
+#updater.dispatcher.add_handler(CommandHandler('dice', dice))
 updater.dispatcher.add_handler(CommandHandler('d', d))
-updater.dispatcher.add_handler(CommandHandler('good', good))
-updater.dispatcher.add_handler(CommandHandler('normal', normal))
-updater.dispatcher.add_handler(CommandHandler('bad', bad))
-updater.dispatcher.add_handler(CommandHandler('sort', sortf))
-updater.dispatcher.add_handler(CommandHandler('count', countf))
-updater.dispatcher.add_handler(CommandHandler('f', f))
-updater.dispatcher.add_handler(CommandHandler('ff', ff))
-updater.dispatcher.add_handler(CommandHandler('p', p))
-updater.dispatcher.add_handler(CommandHandler('g', g))
-updater.dispatcher.add_handler(CommandHandler('n', n))
-updater.dispatcher.add_handler(CommandHandler('w', w))
-updater.dispatcher.add_handler(CommandHandler('help', helpf))
+#updater.dispatcher.add_handler(CommandHandler('good', good))
+#updater.dispatcher.add_handler(CommandHandler('normal', normal))
+#updater.dispatcher.add_handler(CommandHandler('bad', bad))
+#updater.dispatcher.add_handler(CommandHandler('sort', sortf))
+#updater.dispatcher.add_handler(CommandHandler('count', countf))
+#updater.dispatcher.add_handler(CommandHandler('f', f))
+#updater.dispatcher.add_handler(CommandHandler('ff', ff))
+#updater.dispatcher.add_handler(CommandHandler('p', p))
+#updater.dispatcher.add_handler(CommandHandler('g', g))
+#updater.dispatcher.add_handler(CommandHandler('n', n))
+#updater.dispatcher.add_handler(CommandHandler('w', w))
+#updater.dispatcher.add_handler(CommandHandler('help', helpf))
 
 updater.start_polling()
 updater.idle()
